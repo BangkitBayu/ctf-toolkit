@@ -43,3 +43,4 @@
 ## References
 
 - Linux fundamental 1,2,3 - [https://tryhackme.com/module/linux-fundamentals](https://tryhackme.com/module/linux-fundamentals)
+- All about linux - [https://labex.io/linuxjourney](https://labex.io/linuxjourney)
