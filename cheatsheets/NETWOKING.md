@@ -16,6 +16,16 @@
 | Data Link    | Mengatur pengiriman data antar perangkat yang terhubung dalam 1 jaringan menggunakan MAC Address                                      | Ethernet, Wi-Fi (IEEE 802.11), Switch, Bridge |
 | Physical     | Mengubah data digital menjadi sinyal fisik seperti listrik, cahaya, gelombang radio                                                   | UTP Cable, Fiber                              |
 
+### Transmission Connect Protocol (TCP) 3 Way Handshake
+
+![1](./TCP-connection.png)
+
+|     |                                                                                       |
+| --- | ------------------------------------------------------------------------------------- |
+| SYN | SYN / Synchronize adalah proses client mengirim paket ke target untuk meminta koneksi |
+| ACK | ACK / Acknowledge adalah proses server menerima paket permintaan koneksi              |
+| RST | RST / Reset adalah proses memutuskan koneksi secara paksa dan instan                  |
+
 ## Linux Networking & CLI Quick Reference
 
 ```bash
@@ -32,6 +42,8 @@ dig <domain> @<dns-server-ip> # Menampilkan informasi tentang DNS lebih detail
 
 openvpn filename.ovpn # Menghubungkan koneksi vpn
 ```
+
+|
 
 ## Nmap CLI Quick Reference
 
