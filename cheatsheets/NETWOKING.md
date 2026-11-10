@@ -29,6 +29,8 @@ ping <IP/DOMAIN> # Tes konektivitas
 traceroute <IP/DOMAIN> # Melacak jalur hop data
 whois <IP/DOMAIN> # Menampilkan informasi tentang kepemilikan IP/Domain secara detail
 dig <domain> @<dns-server-ip> # Menampilkan informasi tentang DNS lebih detail
+
+openvpn filename.ovpn # Menghubungkan koneksi vpn
 ```
 
 ## Nmap CLI Quick Reference
@@ -38,6 +40,7 @@ dig <domain> @<dns-server-ip> # Menampilkan informasi tentang DNS lebih detail
 nmap -sS <IP/DNS> # SYN scan / stealth scan
 nmap -sU <IP/DNS> # UDP scan
 nmap -sT <IP/DNS> # TCP connect scan
+nmap -sN, -sF, sX <IP/DNS> # NULL, Finn, Xmas
 
 # OS Detection
 nmap -O <IP/DNS> # Deteksi OS
@@ -59,6 +62,25 @@ nmap -A <IP/DNS> # Aggresive mode
 nmap -T<1-5> <IP/DNS> # Speed scan
 nmap -p- <IP/DNS> # Scan all port
 nmap -p <port-range> <IP/DNS> # Scan port with range
+```
+
+### Nmap Scripting Engine (NSE)
+
+script NSE path: /usr/share/nmap/scripts
+
+| Category  | Detail                                                                                                   |
+| --------- | -------------------------------------------------------------------------------------------------------- |
+| safe      | Won't affect the target                                                                                  |
+| intrusive | Not safe: likely to affect the target                                                                    |
+| vuln      | Scan for vulnerabilities                                                                                 |
+| exploit   | Attempt to exploit a vulnerability                                                                       |
+| auth      | Attempt to bypass authentication for running services (e.g. Log into an FTP server anonymously)          |
+| brute     | Attempt to bruteforce credentials for running services                                                   |
+| discovery | Attempt to query running services for further information about the network (e.g. query an SNMP server). |
+
+```bash
+nmap -sC <IP/DNS> # Using default script
+nmap -script=script <IP/DNS> # Using specific script
 ```
 
 ## References
