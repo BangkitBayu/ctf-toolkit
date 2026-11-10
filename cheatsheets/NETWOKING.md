@@ -17,6 +17,7 @@
 | Physical     | Mengubah data digital menjadi sinyal fisik seperti listrik, cahaya, gelombang radio                                                   | UTP Cable, Fiber                              |
 
 ## Linux Networking & CLI Quick Reference
+
 ```bash
 # Cek IP Address & Interface
 ip a
@@ -25,11 +26,42 @@ ip addr
 
 # Diagnosis koneksi dan DNS
 ping <IP/DOMAIN> # Tes konektivitas
-traceroute <IP/DOMAIN> # Melacak jalur hop data 
+traceroute <IP/DOMAIN> # Melacak jalur hop data
 whois <IP/DOMAIN> # Menampilkan informasi tentang kepemilikan IP/Domain secara detail
 dig <domain> @<dns-server-ip> # Menampilkan informasi tentang DNS lebih detail
+```
+
+## Nmap CLI Quick Reference
+
+```bash
+# SCAN TECHNIQUES:
+nmap -sS <IP/DNS> # SYN scan / stealth scan
+nmap -sU <IP/DNS> # UDP scan
+nmap -sT <IP/DNS> # TCP connect scan
+
+# OS Detection
+nmap -O <IP/DNS> # Deteksi OS
+
+# SERVICE/VERSION DETECTION:
+nmap -sV <IP/DNS> # Deteksi service version
+
+# OUTPUT
+nmap -v <IP/DNS> # verbose
+nmap -vv <IP/DNS> # High verbose
+nmap -oA <IP/DNS> # Save with 3 major format
+nmap -oN <IP/DNS> # normal format
+nmap -oG <IP/DNS> # Grep format
+
+# MISC
+nmap -A <IP/DNS> # Aggresive mode
+
+# Timing & Performance
+nmap -T<1-5> <IP/DNS> # Speed scan
+nmap -p- <IP/DNS> # Scan all port
+nmap -p <port-range> <IP/DNS> # Scan port with range
 ```
 
 ## References
 
 - Intro to networking - [https://tryhackme.com/module/intro-to-networking](https://tryhackme.com/module/intro-to-networking)
+- Nmap book - [https://nmap.org/book/](https://nmap.org/book/)
