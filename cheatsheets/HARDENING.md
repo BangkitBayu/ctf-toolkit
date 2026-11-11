@@ -2,7 +2,7 @@
 
 ## Linux Hardening
 
-## CLI Quick Reference
+### CLI Quick Reference
 
 ```bash
 sudo systemctl status <service> # Untuk mengecek apakah layanan tertentu aktif, eg ssh
