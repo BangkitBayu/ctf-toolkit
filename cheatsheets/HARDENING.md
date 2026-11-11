@@ -19,12 +19,12 @@ File konifigurasi utama berada di `/etc/pam.d`
 
 ### PAM Principles
 
-| Prinsip                  | Definisi singkat                                                                  | Implikasi praktis di Linux                                                   |
-| ------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| **Least Privilege**      | Beri hak seminimal mungkin untuk satu tugas.                                      | `sudo` per-perintah, bukan `(ALL) ALL`; tidak ada UID 0 ganda.               |
-| **Separation of Duties** | Eskalasi privilege harus eksplisit, terkontrol, dan terlog.                       | Pakai `sudo` (terlog, granular) menggantikan `su`/login root langsung.       |
-| **Defense-in-Depth**     | Banyak lapisan: kebijakan password, lockout, pembatasan `su`, polkit, root login. | Satu kontrol jebol tidak langsung memberi root.                              |
-| **Auditability**         | Setiap penggunaan privilege harus terekam dan terverifikasi.                      | Log `sudo`, integritas `pam.d`, jejak `auth.log`/`secure` (-> **Modul 05**). |
+| Prinsip                  | Definisi singkat                                                                  | Implikasi praktis di Linux                                             |
+| ------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **Least Privilege**      | Beri hak seminimal mungkin untuk satu tugas.                                      | `sudo` per-perintah, bukan `(ALL) ALL`; tidak ada UID 0 ganda.         |
+| **Separation of Duties** | Eskalasi privilege harus eksplisit, terkontrol, dan terlog.                       | Pakai `sudo` (terlog, granular) menggantikan `su`/login root langsung. |
+| **Defense-in-Depth**     | Banyak lapisan: kebijakan password, lockout, pembatasan `su`, polkit, root login. | Satu kontrol jebol tidak langsung memberi root.                        |
+| **Auditability**         | Setiap penggunaan privilege harus terekam dan terverifikasi.                      | Log `sudo`, integritas `pam.d`, jejak `auth.log`/`secure`              |
 
 ### CLI Quick Reference
 
