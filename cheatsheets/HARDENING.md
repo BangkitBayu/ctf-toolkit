@@ -17,6 +17,25 @@ Sebelum melakukan hardening, pastikan paket-paket pendukung berikut terinstal di
 
 File konifigurasi utama berada di `/etc/pam.d`
 
+- **Mengatur Kompleksitas Password `/etc/security/pwquality.conf`**
+
+| Opsi                                    | Nilai (CIS L1)                   | Arti                                            |
+| --------------------------------------- | -------------------------------- | ----------------------------------------------- |
+| `minlen`                                | `14`                             | Panjang minimum.                                |
+| `minclass`                              | `4`                              | Wajib 4 kelas (huruf besar/kecil/angka/simbol). |
+| `dcredit` `ucredit` `lcredit` `ocredit` | `-1` (bila tak pakai `minclass`) | Minimal 1 tiap jenis (kredit negatif = wajib).  |
+| `maxrepeat`                             | `3`                              | Maksimal karakter berturut sama.                |
+| `difok`                                 | `2`                              | Minimal karakter beda dari password lama.       |
+| `enforce_for_root`                      | (set)                            | Berlakukan juga untuk root.                     |
+
+```bash
+sudo sed -i 's/^# *minlen.*/minlen = 14/'     /etc/security/pwquality.conf
+sudo sed -i 's/^# *minclass.*/minclass = 4/'  /etc/security/pwquality.conf
+grep -E '^(minlen|minclass|maxrepeat|difok)' /etc/security/pwquality.conf
+```
+
+||
+
 ### PAM Principles
 
 | Prinsip                  | Definisi singkat                                                                  | Implikasi praktis di Linux                                             |
@@ -36,3 +55,4 @@ sudo systemctl start <service> # Untuk mnejalankan layanan, eg ssh
 ## References
 
 - Mitre attack - [https://attack.mitre.org/](https://attack.mitre.org/)
+- CIS L1 & CIS L2 - [https://blog.scalefusion.com/id/cis-level-1-vs-cis-level-2/](https://blog.scalefusion.com/id/cis-level-1-vs-cis-level-2/)
