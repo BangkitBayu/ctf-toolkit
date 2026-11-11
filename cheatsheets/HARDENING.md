@@ -2,13 +2,29 @@
 
 ## Linux Hardening
 
+### Required Packages & Tools
+
+Sebelum melakukan hardening, pastikan paket-paket pendukung berikut terinstal di VM Ubuntu:
+
+| Paket                | Perintah Instalasi                  | Deskripsi Hardening                      |
+| :------------------- | :---------------------------------- | :--------------------------------------- |
+| **libpam-pwquality** | `sudo apt install libpam-pwquality` | PAM module to check password strength    |
+| **libpam-modules**   | `sudo apt install libpam-modules`   | Pluggable Authentication Modules for PAM |
+
 ### Privileged Access Management (PAM)
 
 > **Privileged Access Management (PAM)** adalah teknik mengelola siapa yang berhak memperoleh akses root, dengan cara apa dan terekam dimana. Namun selain itu istilah PAM dilinux juga berarti Pluggable Authentication Module
 
 File konifigurasi utama berada di `/etc/pam.d`
 
-### PAM Techniques
+### PAM Principles
+
+| Prinsip                  | Definisi singkat                                                                  | Implikasi praktis di Linux                                                   |
+| ------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **Least Privilege**      | Beri hak seminimal mungkin untuk satu tugas.                                      | `sudo` per-perintah, bukan `(ALL) ALL`; tidak ada UID 0 ganda.               |
+| **Separation of Duties** | Eskalasi privilege harus eksplisit, terkontrol, dan terlog.                       | Pakai `sudo` (terlog, granular) menggantikan `su`/login root langsung.       |
+| **Defense-in-Depth**     | Banyak lapisan: kebijakan password, lockout, pembatasan `su`, polkit, root login. | Satu kontrol jebol tidak langsung memberi root.                              |
+| **Auditability**         | Setiap penggunaan privilege harus terekam dan terverifikasi.                      | Log `sudo`, integritas `pam.d`, jejak `auth.log`/`secure` (-> **Modul 05**). |
 
 ### CLI Quick Reference
 
