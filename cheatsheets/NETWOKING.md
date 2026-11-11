@@ -26,6 +26,15 @@
 | ACK | ACK / Acknowledge adalah proses server menerima paket permintaan koneksi              |
 | RST | RST / Reset adalah proses memutuskan koneksi secara paksa dan instan                  |
 
+### Common Port Service
+
+| Port | Name     | Description                                     |
+| ---- | -------- | ----------------------------------------------- |
+| 20   | FTP-data | File Transfer Protocol data transfer            |
+| 21   | FTP      | File Transfer Protocol (FTP) control connection |
+| 80   | HTTP     | Uncrypted web service                           |
+| 443  | HTTPS    | Encrypted web service using ssl                 |
+
 ## Linux Networking & CLI Quick Reference
 
 ```bash
@@ -42,8 +51,6 @@ dig <domain> @<dns-server-ip> # Menampilkan informasi tentang DNS lebih detail
 
 openvpn filename.ovpn # Menghubungkan koneksi vpn
 ```
-
-|
 
 ## Nmap CLI Quick Reference
 
@@ -99,3 +106,4 @@ nmap -script=script <IP/DNS> # Using specific script
 
 - Intro to networking - [https://tryhackme.com/module/intro-to-networking](https://tryhackme.com/module/intro-to-networking)
 - Nmap book - [https://nmap.org/book/](https://nmap.org/book/)
+- Common port - [https://www.geeksforgeeks.org/computer-networks/50-common-ports-you-should-know/](https://www.geeksforgeeks.org/computer-networks/50-common-ports-you-should-know/)
