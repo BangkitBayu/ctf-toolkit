@@ -74,6 +74,42 @@ sudo faillock --user alice --reset
 
 ### Dangerous Exposed Services
 
+> **Summary:** Inti dari hardening Dangerous Exposed Service adalah bagaimana cara kita mengetahui, mengkonfigurasi dan menutup service yang berjalan atau state nya running terekspos ke publik, sehingga user dari luar dapat memanfaatkan celah layanan untuk merusak sistem. Dangerous Exposed Service juga dapat dilakukan pada port service yang tidak seharusnya diperlukan atau digunakan namun terbuka.
+
+#### Menemukan Service dan Port yang Terbuka
+
+Lihat port lengkap di: [NETWORKING.md](./NETWOKING.md)
+
+1.Dari dalam host
+
+```bash
+# Menampikan semua port yang aktif
+ss -tulpn
+
+# Menampilkan semua port dengan status tertentu
+ss -tulpn | grep "<status>"
+
+# Service systemd yang sedang berjalan
+systemctl list-units --type=service --state=running
+
+# Socket yang dikelola systemd (socket activation - service bisa "mati" tapi tetap bisa diaktifkan)
+systemctl list-sockets
+
+# Service yang AKTIF saat boot (enabled) - termasuk yang belum tentu jalan sekarang
+systemctl list-unit-files --type=service --state=enabled
+```
+
+2.Dari luar host
+
+```bash
+# Service & version detection + banner (inti recon penyerang → T1046)
+nmap -sV -sC -p- <IP/DOMAIN>
+
+# Banner grabbing manual (versi service bocor di sini)
+nc -nv <IP/DOMAIN> <PORT>         # FTP banner
+nmap -sV --script=banner <IP/DOMAIN>
+```
+
 ## CLI Quick Reference
 
 ```bash
