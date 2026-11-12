@@ -28,12 +28,15 @@
 
 ### Common Port Service
 
-| Port | Name     | Description                                     |
-| ---- | -------- | ----------------------------------------------- |
-| 20   | FTP-data | File Transfer Protocol data transfer            |
-| 21   | FTP      | File Transfer Protocol (FTP) control connection |
-| 80   | HTTP     | Uncrypted web service                           |
-| 443  | HTTPS    | Encrypted web service using ssl                 |
+| Port | Name                      | Description                                                                                        |
+| ---- | ------------------------- | -------------------------------------------------------------------------------------------------- |
+| 20   | FTP-data                  | File Transfer Protocol data transfer                                                               |
+| 21   | FTP                       | File Transfer Protocol (FTP) control connection                                                    |
+| 23   | Telnet (Teletype Network) | network protocol that allows users to remotely access and manage devices or systems over a network |
+| 79   | Finger                    | Give information about user currently logged in                                                    |
+| 80   | HTTP                      | Uncrypted web service                                                                              |
+| 443  | HTTPS                     | Encrypted web service using ssl                                                                    |
+| 6379 | Redis server              | Redis database port server                                                                         |
 
 ## Linux Networking & CLI Quick Reference
 

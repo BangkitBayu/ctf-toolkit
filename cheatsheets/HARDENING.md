@@ -37,11 +37,22 @@ File konifigurasi utama berada di `/etc/pam.d`
 | **Defense-in-Depth**     | Banyak lapisan: kebijakan password, lockout, pembatasan `su` , polkit, root login. | Satu kontrol jebol tidak langsung memberi root.                         |
 | **Auditability**         | Setiap penggunaan privilege harus terekam dan terverifikasi.                       | Log `sudo` , integritas `pam.d` , jejak `auth.log` / `secure` .         |
 
+### Dangerous Exposed Services
+
 ## CLI Quick Reference
 
 ```bash
-sudo systemctl status <service> # Untuk mengecek apakah layanan tertentu aktif, eg ssh
-sudo systemctl start <service> # Untuk mnejalankan layanan, eg ssh
+# Untuk mengecek apakah layanan tertentu aktif, eg ssh
+sudo systemctl status <service>
+
+# Untuk menjalankan layanan sementara, eg ssh
+sudo systemctl start <service>
+
+# Menjalankan ulang service, eg ssh
+sudo systemctl restart <service> 
+
+# Menjalankan layanan secara permanen, eg ssh
+sudo systemctl enable <service> 
 ```
 
 ## References
